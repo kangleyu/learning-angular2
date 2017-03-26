@@ -1,0 +1,39 @@
+{
+  "name": "learning-angular2",
+  "version": "1.0.0",
+  "description": "Sample angular 2 application",
+  "main": "index.js",
+  "scripts": {
+    "typings": "typings",
+    "postinstall": "typings install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kangleyu/learning-angular2.git"
+  },
+  "keywords": [
+    "angular2"
+  ],
+  "author": "Tom Yu <yukangle@outlook.com> (http://www.kangleyu.me)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kangleyu/learning-angular2/issues"
+  },
+  "homepage": "https://github.com/kangleyu/learning-angular2#readme",
+  "dependencies": {
+    "@angular/common": "^4.0.0",
+    "@angular/compiler": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "@angular/http": "^4.0.0",
+    "@angular/platform-browser": "^4.0.0",
+    "@angular/platform-browser-dynamic": "^4.0.0",
+    "@angular/router": "^4.0.0",
+    "bootstrap": "^3.3.7",
+    "es6-shim": "^0.35.3",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "^5.2.0",
+    "systemjs": "^0.19.47",
+    "zone.js": "^0.8.5"
+  }
+}
