@@ -1,4 +1,4 @@
-System.register(["@angular/core"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/platform-browser", "@angular/platform-browser-dynamic"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,11 +10,17 @@ System.register(["@angular/core"], function (exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, HelloAngularComponent;
+    var core_1, platform_browser_1, platform_browser_dynamic_1, HelloAngularComponent, AppModule, platform;
     return {
         setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (platform_browser_1_1) {
+                platform_browser_1 = platform_browser_1_1;
+            },
+            function (platform_browser_dynamic_1_1) {
+                platform_browser_dynamic_1 = platform_browser_dynamic_1_1;
             }
         ],
         execute: function () {
@@ -27,10 +33,27 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             HelloAngularComponent = __decorate([
                 core_1.Component({
                     selector: 'hello-angular',
-                    template: '<h1>{{greeting}}</h1>'
+                    template: '<h1 class="text-center"> {{greeting}} </h1>'
                 }),
                 __metadata("design:paramtypes", [])
             ], HelloAngularComponent);
+            exports_1("HelloAngularComponent", HelloAngularComponent);
+            AppModule = (function () {
+                function AppModule() {
+                }
+                return AppModule;
+            }());
+            AppModule = __decorate([
+                core_1.NgModule({
+                    imports: [platform_browser_1.BrowserModule],
+                    declarations: [HelloAngularComponent],
+                    bootstrap: [HelloAngularComponent],
+                })
+            ], AppModule);
+            exports_1("AppModule", AppModule);
+            // Application bootstrap (specific for browser environments)
+            platform = platform_browser_dynamic_1.platformBrowserDynamic();
+            platform.bootstrapModule(AppModule);
         }
     };
 });
