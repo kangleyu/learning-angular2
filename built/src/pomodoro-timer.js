@@ -56,7 +56,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             PomodoroTimerComponent = __decorate([
                 core_1.Component({
                     selector: 'pomodoro-timer',
-                    template: "\n  <h1> {{ minutes }}:{{ seconds | number: '2.0' }} </h1>\n  <p> \n    <button (click)=\"togglePause()\">\n      {{ buttonLabel }}\n    </button>\n  </p>\n  "
+                    template: "\n  <div class=\"text-center\">\n    <img src=\"assets/img/pomodoro.png\" alt=\"Pomodoro\" style=\"width:116px;height:86px\">\n    <h1> {{ minutes }}:{{ seconds | number: '2.0' }} </h1>\n    <p> \n      <button (click)=\"togglePause()\" class=\"btn btn-danger\">\n        {{ buttonLabel }}\n      </button>\n    </p>\n  </div>\n  "
                 }),
                 __metadata("design:paramtypes", [])
             ], PomodoroTimerComponent);

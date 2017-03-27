@@ -4,12 +4,15 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 @Component({
   selector: 'pomodoro-timer',
   template: `
-  <h1> {{ minutes }}:{{ seconds | number: '2.0' }} </h1>
-  <p> 
-    <button (click)="togglePause()">
-      {{ buttonLabel }}
-    </button>
-  </p>
+  <div class="text-center">
+    <img src="assets/img/pomodoro.png" alt="Pomodoro" style="width:116px;height:86px">
+    <h1> {{ minutes }}:{{ seconds | number: '2.0' }} </h1>
+    <p> 
+      <button (click)="togglePause()" class="btn btn-danger">
+        {{ buttonLabel }}
+      </button>
+    </p>
+  </div>
   `
 })
 export class PomodoroTimerComponent {
