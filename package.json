@@ -35,5 +35,10 @@
     "rxjs": "^5.2.0",
     "systemjs": "^0.19.47",
     "zone.js": "^0.8.5"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.1.6",
+    "typescript": "^2.1.6"
   }
 }
