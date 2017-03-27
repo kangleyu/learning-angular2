@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/platform-browser", "@angular/platform-browser-dynamic"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/platform-browser", "@angular/platform-browser-dynamic", "./pomodoro-timer"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -6,11 +6,8 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/platfor
         else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
-    var __metadata = (this && this.__metadata) || function (k, v) {
-        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-    };
     var __moduleName = context_1 && context_1.id;
-    var core_1, platform_browser_1, platform_browser_dynamic_1, HelloAngularComponent, AppModule, platform;
+    var core_1, platform_browser_1, platform_browser_dynamic_1, pomodoro_timer_1, AppModule, platform;
     return {
         setters: [
             function (core_1_1) {
@@ -21,23 +18,12 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/platfor
             },
             function (platform_browser_dynamic_1_1) {
                 platform_browser_dynamic_1 = platform_browser_dynamic_1_1;
+            },
+            function (pomodoro_timer_1_1) {
+                pomodoro_timer_1 = pomodoro_timer_1_1;
             }
         ],
         execute: function () {
-            HelloAngularComponent = (function () {
-                function HelloAngularComponent() {
-                    this.greeting = 'Hello Angular 2!';
-                }
-                return HelloAngularComponent;
-            }());
-            HelloAngularComponent = __decorate([
-                core_1.Component({
-                    selector: 'hello-angular',
-                    template: '<h1 class="text-center"> {{greeting}} </h1>'
-                }),
-                __metadata("design:paramtypes", [])
-            ], HelloAngularComponent);
-            exports_1("HelloAngularComponent", HelloAngularComponent);
             AppModule = (function () {
                 function AppModule() {
                 }
@@ -46,8 +32,8 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/platfor
             AppModule = __decorate([
                 core_1.NgModule({
                     imports: [platform_browser_1.BrowserModule],
-                    declarations: [HelloAngularComponent],
-                    bootstrap: [HelloAngularComponent],
+                    declarations: [pomodoro_timer_1.PomodoroTimerComponent],
+                    bootstrap: [pomodoro_timer_1.PomodoroTimerComponent],
                 })
             ], AppModule);
             exports_1("AppModule", AppModule);
