@@ -18,6 +18,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             PomodoroTimerComponent = (function () {
                 function PomodoroTimerComponent() {
                 }
+                // timeout: number; /** no longer required */
                 PomodoroTimerComponent.prototype.onCountdownCompleted = function () {
                     alert('Time up!');
                 };
@@ -26,7 +27,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             PomodoroTimerComponent = __decorate([
                 core_1.Component({
                     selector: 'pomodoro-timer',
-                    template: "\n  <div class=\"container text-center\">\n    <img src=\"assets/img/pomodoro.png\" style=\"width:116px;height:86px\" />\n    <countdown [seconds]=\"15\"\n      (complete)=\"onCountdownCompleted()\"\n      (progress)=\"timeout = $event\"></countdown>\n    <p *ngIf=\"timeout < 10\">\n      Beware! Only <strong>{{timeout}} seconds</strong> left.\n    </p>\n  </div>\n  "
+                    template: "\n  <div class=\"container text-center\">\n    <img src=\"assets/img/pomodoro.png\" style=\"width:116px;height:86px\" />\n    <countdown [seconds]=\"25\"\n      (complete)=\"onCountdownCompleted()\"\n      #counter>\n    </countdown>\n    <p>\n      <button class=\"btn btn-default\" (click)=\"counter.seconds = 25\">\n        Reset countdown to 25 seconds\n      </button>\n    </p>\n    <p *ngIf=\"counter.seconds < 10\">\n      Beware! Only <strong>{{counter.seconds}} seconds</strong> left.\n    </p>\n  </div>\n  "
                 })
             ], PomodoroTimerComponent);
             exports_1("PomodoroTimerComponent", PomodoroTimerComponent);

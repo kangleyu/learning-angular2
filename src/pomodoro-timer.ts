@@ -8,17 +8,23 @@ import { Component } from '@angular/core';
   template: `
   <div class="container text-center">
     <img src="assets/img/pomodoro.png" style="width:116px;height:86px" />
-    <countdown [seconds]="15"
+    <countdown [seconds]="25"
       (complete)="onCountdownCompleted()"
-      (progress)="timeout = $event"></countdown>
-    <p *ngIf="timeout < 10">
-      Beware! Only <strong>{{timeout}} seconds</strong> left.
+      #counter>
+    </countdown>
+    <p>
+      <button class="btn btn-default" (click)="counter.seconds = 25">
+        Reset countdown to 25 seconds
+      </button>
+    </p>
+    <p *ngIf="counter.seconds < 10">
+      Beware! Only <strong>{{counter.seconds}} seconds</strong> left.
     </p>
   </div>
   `
 })
 export class PomodoroTimerComponent {
-  timeout: number;
+  // timeout: number; /** no longer required */
   onCountdownCompleted() {
     alert('Time up!');
   }
