@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
 
 @Component({
   selector: 'pomodoro-timer',
-  template: '<countdown></countdown>'
+  template: `
+  <div class="container text-center">
+    <img src="assets/img/pomodoro.png" />
+    <countdown [seconds]="25"></countdown>
+  </div>
+  `
 })
 export class PomodoroTimerComponent {}

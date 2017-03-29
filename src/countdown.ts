@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'countdown',
   template: '<h1>Time left: {{seconds}}</h1>'
 })
 export class CountdownComponent {
-  seconds: number = 25;
+  // Set input field for the Component
+  @Input() seconds: number;
   intervalId: number;
 
   constructor() {
