@@ -1,4 +1,10 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { 
+  Component, 
+  Input, 
+  Output, 
+  EventEmitter,
+  ViewEncapsulation
+} from '@angular/core';
 
 @Component({
   selector: 'countdown',
@@ -12,6 +18,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   // - styles property styles: [`....`]
   // - styleUrls: external style sheet file
   // - inline style in template
+  styles: ['h1 { color: #900 }'],
+  // Emulated - default options, it basically entails an emulation of a native scope in shadow dom
+  // Native - use the native shadow DOM encapsulating
+  // None - template or stle encapsulating is not provided
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class CountdownComponent {
   // Set input field for the Component
