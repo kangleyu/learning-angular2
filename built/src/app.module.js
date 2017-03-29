@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/platform-browser", "@angular/platform-browser-dynamic", "./pomodoro-timer"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/platform-browser", "./pomodoro-timer", "./countdown"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7,7 +7,7 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/platfor
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, platform_browser_1, platform_browser_dynamic_1, pomodoro_timer_1, AppModule, platform;
+    var core_1, platform_browser_1, pomodoro_timer_1, countdown_1, AppModule;
     return {
         setters: [
             function (core_1_1) {
@@ -16,11 +16,11 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/platfor
             function (platform_browser_1_1) {
                 platform_browser_1 = platform_browser_1_1;
             },
-            function (platform_browser_dynamic_1_1) {
-                platform_browser_dynamic_1 = platform_browser_dynamic_1_1;
-            },
             function (pomodoro_timer_1_1) {
                 pomodoro_timer_1 = pomodoro_timer_1_1;
+            },
+            function (countdown_1_1) {
+                countdown_1 = countdown_1_1;
             }
         ],
         execute: function () {
@@ -32,14 +32,11 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/platfor
             AppModule = __decorate([
                 core_1.NgModule({
                     imports: [platform_browser_1.BrowserModule],
-                    declarations: [pomodoro_timer_1.PomodoroTimerComponent],
+                    declarations: [countdown_1.CountdownComponent, pomodoro_timer_1.PomodoroTimerComponent],
                     bootstrap: [pomodoro_timer_1.PomodoroTimerComponent],
                 })
             ], AppModule);
             exports_1("AppModule", AppModule);
-            // Application bootstrap (specific for browser environments)
-            platform = platform_browser_dynamic_1.platformBrowserDynamic();
-            platform.bootstrapModule(AppModule);
         }
     };
 });
