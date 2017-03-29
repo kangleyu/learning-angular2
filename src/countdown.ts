@@ -7,6 +7,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   // then we can remove @Input() and @Output() decorators
   // inputs: ['seconds'],
   // outputs: ['complete', 'progress']
+
+  // encapsulating css styles for the Component
+  // - styles property styles: [`....`]
+  // - styleUrls: external style sheet file
+  // - inline style in template
 })
 export class CountdownComponent {
   // Set input field for the Component
