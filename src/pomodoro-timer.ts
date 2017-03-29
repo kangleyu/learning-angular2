@@ -4,9 +4,14 @@ import { Component } from '@angular/core';
   selector: 'pomodoro-timer',
   template: `
   <div class="container text-center">
-    <img src="assets/img/pomodoro.png" />
-    <countdown [seconds]="25"></countdown>
+    <img src="assets/img/pomodoro.png" style="width:116px;height:86px" />
+    <countdown [seconds]="5"
+      (complete)="onCountdownCompleted()"></countdown>
   </div>
   `
 })
-export class PomodoroTimerComponent {}
+export class PomodoroTimerComponent {
+  onCountdownCompleted() {
+    alert('Time up!');
+  }
+}

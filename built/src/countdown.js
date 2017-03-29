@@ -21,16 +21,27 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             CountdownComponent = (function () {
                 function CountdownComponent() {
                     var _this = this;
-                    this.seconds = 25;
+                    // Set output delegate(event) which can be subscribed outside
+                    this.complete = new core_1.EventEmitter();
                     this.intervalId = setInterval(function () { return _this.tick(); }, 1000);
                 }
                 CountdownComponent.prototype.tick = function () {
                     if (--this.seconds < 1) {
                         clearInterval(this.intervalId);
+                        // An event is emitted upon finishing the coundown
+                        this.complete.emit(null);
                     }
                 };
                 return CountdownComponent;
             }());
+            __decorate([
+                core_1.Input(),
+                __metadata("design:type", Number)
+            ], CountdownComponent.prototype, "seconds", void 0);
+            __decorate([
+                core_1.Output(),
+                __metadata("design:type", core_1.EventEmitter)
+            ], CountdownComponent.prototype, "complete", void 0);
             CountdownComponent = __decorate([
                 core_1.Component({
                     selector: 'countdown',
