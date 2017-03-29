@@ -23,6 +23,8 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                     var _this = this;
                     // Set output delegate(event) which can be subscribed outside
                     this.complete = new core_1.EventEmitter();
+                    // output delegate which can report the progress to outside
+                    this.progress = new core_1.EventEmitter();
                     this.intervalId = setInterval(function () { return _this.tick(); }, 1000);
                 }
                 CountdownComponent.prototype.tick = function () {
@@ -31,6 +33,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         // An event is emitted upon finishing the coundown
                         this.complete.emit(null);
                     }
+                    this.progress.emit(this.seconds);
                 };
                 return CountdownComponent;
             }());
@@ -42,6 +45,10 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                 core_1.Output(),
                 __metadata("design:type", core_1.EventEmitter)
             ], CountdownComponent.prototype, "complete", void 0);
+            __decorate([
+                core_1.Output(),
+                __metadata("design:type", core_1.EventEmitter)
+            ], CountdownComponent.prototype, "progress", void 0);
             CountdownComponent = __decorate([
                 core_1.Component({
                     selector: 'countdown',

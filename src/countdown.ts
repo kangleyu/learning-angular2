@@ -10,6 +10,8 @@ export class CountdownComponent {
   intervalId: number;
   // Set output delegate(event) which can be subscribed outside
   @Output() complete: EventEmitter<any> = new EventEmitter();
+  // output delegate which can report the progress to outside
+  @Output() progress: EventEmitter<number> = new EventEmitter();
 
   constructor() {
     this.intervalId = setInterval(() => this.tick(), 1000);
@@ -21,5 +23,6 @@ export class CountdownComponent {
       // An event is emitted upon finishing the coundown
       this.complete.emit(null);
     }
+    this.progress.emit(this.seconds);
   }
 }

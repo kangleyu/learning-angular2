@@ -26,7 +26,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             PomodoroTimerComponent = __decorate([
                 core_1.Component({
                     selector: 'pomodoro-timer',
-                    template: "\n  <div class=\"container text-center\">\n    <img src=\"assets/img/pomodoro.png\" style=\"width:116px;height:86px\" />\n    <countdown [seconds]=\"5\"\n      (complete)=\"onCountdownCompleted()\"></countdown>\n  </div>\n  "
+                    template: "\n  <div class=\"container text-center\">\n    <img src=\"assets/img/pomodoro.png\" style=\"width:116px;height:86px\" />\n    <countdown [seconds]=\"15\"\n      (complete)=\"onCountdownCompleted()\"\n      (progress)=\"timeout = $event\"></countdown>\n    <p *ngIf=\"timeout < 10\">\n      Beware! Only <strong>{{timeout}} seconds</strong> left.\n    </p>\n  </div>\n  "
                 })
             ], PomodoroTimerComponent);
             exports_1("PomodoroTimerComponent", PomodoroTimerComponent);
