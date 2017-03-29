@@ -8,7 +8,7 @@
     "postinstall": "typings install",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp build",
-    "start": "gulp build & lite-server"
+    "start": "gulp build & gulp copy & lite-server"
   },
   "repository": {
     "type": "git",
