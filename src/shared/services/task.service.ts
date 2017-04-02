@@ -1,8 +1,9 @@
-import { Task } from './task';
+import { Injectable } from '@angular/core';
+import { Task } from '../shared';
 
-/// Local Data Service
-export class TasksService {
-  public taskStore: Array<Task> = [];
+@Injectable()
+export default class TasksService {
+  public taskStore: Task[] = [];
 
   constructor() {
     const tasks = [

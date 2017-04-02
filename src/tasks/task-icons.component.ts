@@ -1,23 +1,14 @@
-import { Task } from './models/task';
-
-import {
-  Component,
-  Input,
-  Pipe,
-  PipeTransform,
-  Directive,
-  OnInit,
-  HostListener
-} from '@angular/core';
+import { Task } from '../shared/shared';
+import { Component, Input, OnInit, } from '@angular/core';
 
 @Component({
   selector: 'pomodoro-task-icons',
-  templateUrl: 'public/pomodoro-taskicons.html'
+  templateUrl: 'public/tasks/task-icons.component.html'
 })
-export class TaskIconsComponent implements OnInit {
+export default class TaskIconsComponent implements OnInit {
   @Input() task: Task;
-  icons: Object[] = [];
   @Input() size: number;
+  icons: Object[] = [];
 
   // InInit interface demands an ngOnInit() method to be integrated in 
   // the controller class that implements such intrface, and it will

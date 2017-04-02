@@ -1,15 +1,10 @@
-import { 
-  Directive,
-  ElementRef,
-  Input,
-  HostListener
-} from '@angular/core';
-import { Task } from '../models/task';
+import { Task } from '../shared/shared';
+import { Directive, Input, HostListener } from '@angular/core';
 
 @Directive({
   selector: '[task]'
 })
-export class TaskTooltipDirective {
+export default class TaskTooltipDirective {
   private defaultTooltipText: string;
   @Input() task: Task;
   @Input() taskTooltip: any;
@@ -21,6 +16,7 @@ export class TaskTooltipDirective {
     }
     this.taskTooltip.innerText = this.task.name;
   }
+  
   @HostListener('mouseout')
   onMouseOut() {
     if (this.taskTooltip) {

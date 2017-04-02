@@ -1,29 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule  } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-
-import { PomodoroTimerComponent } from './pomodoro-timer';
-import { CountdownComponent } from './countdown';
-import { TasksComponent } from './pomodoro-tasks';
-import { TaskIconsComponent } from './pomodoro-taskicons';
-import { FormattedTimePipe } from './pipes/pomodoro-pipes';
-import { QueuedOnlyPipe } from './pipes/pomodoro-pipes';
-import { TaskTooltipDirective } from './directives/pomodoro-tooltipDirective';
-
+import AppComponent from './app.component';
+import { FormattedTimePipe, QueuedOnlyPipe } from './shared/shared';
+import { TimerWidgetComponent } from './timer/timer';
+import { TasksComponent, TaskIconsComponent, TaskTooltipDirective } from './tasks/tasks';
 
 // Main module, bootstrapping HelloAngularComponent as root component
 @NgModule({
   imports: [BrowserModule, CommonModule],
   declarations: [ 
-    CountdownComponent, 
-    PomodoroTimerComponent, 
-    TasksComponent,
-    TaskIconsComponent,
+    AppComponent,
     FormattedTimePipe,
     QueuedOnlyPipe,
-    TaskTooltipDirective
+    TimerWidgetComponent,
+    TasksComponent,
+    TaskTooltipDirective,
+    TaskIconsComponent
   ],
-  bootstrap: [TasksComponent],
+  bootstrap: [AppComponent],
 })
 
 export class AppModule { }
