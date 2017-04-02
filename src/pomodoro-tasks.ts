@@ -1,59 +1,12 @@
+import { Task } from './models/task';
+import { TasksService } from './models/tasksService';
+
 import {
   Component,
-  Input,
   Pipe,
   PipeTransform,
-  Directive,
-  OnInit,
-  HostListener
+  Directive
 } from '@angular/core';
-
-/// Model interface
-interface Task {
-  name: String;
-  deadline: Date;
-  queued: boolean;
-  pomodorosRequired: number;
-}
-
-/// Local Data Service
-class TasksService {
-  public taskStore: Array<Task> = [];
-
-  constructor() {
-    const tasks = [
-      {
-        name: "Code an HTML Table",
-        deadline: "June 23 2015",
-        pomodorosRequired: 1
-      },
-      {
-        name: "Sketch a wireframe for the new homepage",
-        deadline: "June 24 2016",
-        pomodorosRequired: 2
-      },
-      {
-        name: "Style table with Bootstrap styles",
-        deadline: "June 25 2017",
-        pomodorosRequired: 1
-      },
-      {
-        name: "Reinforce SEO with custom sitemap.xml",
-        deadline: "June 26 2017",
-        pomodorosRequired: 3
-      }
-    ];
-
-    this.taskStore = tasks.map(task => {
-      return {
-        name: task.name,
-        deadline: new Date(task.deadline),
-        queued: false,
-        pomodorosRequired: task.pomodorosRequired
-      }
-    });
-  }
-}
 
 /// Pomorodo Task Component
 @Component({
@@ -64,6 +17,7 @@ class TasksService {
 export class TasksComponent {
   today: Date;
   tasks: Task[];
+  queuedTasks: Task[];
   queuedPomodoros: number;
   queueHeaderMapping: any = {
     '=0': 'No pomodoros',
@@ -84,6 +38,9 @@ export class TasksComponent {
   }
 
   private updateQueuedPomodoros(): void {
+    this.queuedTasks = this.tasks
+      .filter((task:Task) => task.queued);
+      
     this.queuedPomodoros = this.tasks
       .filter((task:Task) => task.queued)
       .reduce((pomodoros: number, queuedTask: Task) => {

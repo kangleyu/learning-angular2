@@ -5,6 +5,17 @@
       {{ queuedPomodoros | i18nPlural: queueHeaderMapping }} for today
       <span class="small" *ngIf="queuedPomodoros > 9">(Estimated time: {{ queuedPomodoros * 25 }})</span>
     </h3>
+    <p>
+      <span *ngFor="let queuedTask of queuedTasks">
+        <pomodoro-task-icons
+          [task]="queuedTask"
+          size="58"
+          (mouseover)="tooltip.innerText = queuedTask.name"
+          (mouseout)="tooltip.innerText = 'Mouseover for details'">
+        </pomodoro-task-icons>
+      </span>
+    </p>
+    <p #tooltip>Mouseover for details</p>
     <h4>Tasks backlog</h4>
     <table class="table">
       <thead>
