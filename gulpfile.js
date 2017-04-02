@@ -11,10 +11,15 @@ gulp.task('build', function() {
 });
 
 // task for copying all *.html files to views folder
-var sourceFiels = ['src/**/*.html'];
-var destination = 'views/';
-gulp.task('copy', function() {
-  return gulp.src(sourceFiels).pipe(gulp.dest(destination));
+var sourceHtmlFiles = ['src/**/*.html'];
+var sourceStyleFiles = ['src/**/*.css'];
+var destination = 'public/';
+gulp.task('copyHtmls', function() {
+  return gulp.src(sourceHtmlFiles).pipe(gulp.dest(destination));
+})
+
+gulp.task('copyStyles', function() {
+  return gulp.src(sourceStyleFiles).pipe(gulp.dest(destination + "css/"));
 })
 
 // watch task for monitoring any .ts file changes

@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'pomodoro-timer',
-  templateUrl: './views/pomodoro-timer.html'
+  templateUrl: './public/pomodoro-timer.html'
 })
 export class PomodoroTimerComponent {
   // timeout: number; /** no longer required */
