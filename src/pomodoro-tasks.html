@@ -1,6 +1,10 @@
 <div class="container text-center">
   <img src="assets/img/pomodoro.png" style="width:116px;height:86px" />
   <div class="container">
+    <h3>
+      {{ queuedPomodoros | i18nPlural: queueHeaderMapping }} for today
+      <span class="small" *ngIf="queuedPomodoros > 9">(Estimated time: {{ queuedPomodoros * 25 }})</span>
+    </h3>
     <h4>Tasks backlog</h4>
     <table class="table">
       <thead>
