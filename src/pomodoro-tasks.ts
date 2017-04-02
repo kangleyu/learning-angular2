@@ -34,12 +34,12 @@ class TasksService {
       },
       {
         name: "Style table with Bootstrap styles",
-        deadline: "June 25 2016",
+        deadline: "June 25 2017",
         pomodorosRequired: 1
       },
       {
         name: "Reinforce SEO with custom sitemap.xml",
-        deadline: "June 26 2016",
+        deadline: "June 26 2017",
         pomodorosRequired: 3
       }
     ];
@@ -69,5 +69,9 @@ export class TasksComponent {
     const tasksService: TasksService = new TasksService();
     this.tasks = tasksService.taskStore;
     this.today = new Date();
+  }
+
+  toggleTask(task: Task): void {
+    task.queued = !task.queued;
   }
 }
