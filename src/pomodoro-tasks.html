@@ -6,16 +6,15 @@
       <span class="small" *ngIf="queuedPomodoros > 5">(Estimated time: {{ queuedPomodoros * 25 | pomodoroFormattedTime }})</span>
     </h3>
     <p>
-      <span *ngFor="let queuedTask of tasks | pomodoroQueuedOnly: true">
+      <span *ngFor="let queuedTask of tasks | pomodoroQueuedOnly: true ">
         <pomodoro-task-icons
           [task]="queuedTask"
-          size="58"
-          (mouseover)="tooltip.innerText = queuedTask.name"
-          (mouseout)="tooltip.innerText = 'Mouseover for details'">
+          [taskTooltip]="tooltip"
+          size="58">
         </pomodoro-task-icons>
       </span>
     </p>
-    <p #tooltip>Mouseover for details</p>
+    <p #tooltip [hidden]="queuedPomodoros === 0">Mouseover for details</p>
     <h4>Tasks backlog</h4>
     <table class="table">
       <thead>

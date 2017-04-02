@@ -8,6 +8,7 @@ import { TasksComponent } from './pomodoro-tasks';
 import { TaskIconsComponent } from './pomodoro-taskicons';
 import { FormattedTimePipe } from './pipes/pomodoro-pipes';
 import { QueuedOnlyPipe } from './pipes/pomodoro-pipes';
+import { TaskTooltipDirective } from './directives/pomodoro-tooltipDirective';
 
 
 // Main module, bootstrapping HelloAngularComponent as root component
@@ -19,7 +20,8 @@ import { QueuedOnlyPipe } from './pipes/pomodoro-pipes';
     TasksComponent,
     TaskIconsComponent,
     FormattedTimePipe,
-    QueuedOnlyPipe
+    QueuedOnlyPipe,
+    TaskTooltipDirective
   ],
   bootstrap: [TasksComponent],
 })
