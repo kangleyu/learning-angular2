@@ -17,7 +17,6 @@ import {
 export class TasksComponent {
   today: Date;
   tasks: Task[];
-  queuedTasks: Task[];
   queuedPomodoros: number;
   queueHeaderMapping: any = {
     '=0': 'No pomodoros',
@@ -38,9 +37,6 @@ export class TasksComponent {
   }
 
   private updateQueuedPomodoros(): void {
-    this.queuedTasks = this.tasks
-      .filter((task:Task) => task.queued);
-      
     this.queuedPomodoros = this.tasks
       .filter((task:Task) => task.queued)
       .reduce((pomodoros: number, queuedTask: Task) => {

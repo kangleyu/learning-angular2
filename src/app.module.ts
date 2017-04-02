@@ -6,6 +6,9 @@ import { PomodoroTimerComponent } from './pomodoro-timer';
 import { CountdownComponent } from './countdown';
 import { TasksComponent } from './pomodoro-tasks';
 import { TaskIconsComponent } from './pomodoro-taskicons';
+import { FormattedTimePipe } from './pipes/pomodoro-pipes';
+import { QueuedOnlyPipe } from './pipes/pomodoro-pipes';
+
 
 // Main module, bootstrapping HelloAngularComponent as root component
 @NgModule({
@@ -14,7 +17,9 @@ import { TaskIconsComponent } from './pomodoro-taskicons';
     CountdownComponent, 
     PomodoroTimerComponent, 
     TasksComponent,
-    TaskIconsComponent
+    TaskIconsComponent,
+    FormattedTimePipe,
+    QueuedOnlyPipe
   ],
   bootstrap: [TasksComponent],
 })
