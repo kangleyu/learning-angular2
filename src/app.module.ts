@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { BrowserModule  } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import AppComponent from './app.component';
@@ -8,7 +9,7 @@ import { TasksComponent, TaskIconsComponent, TaskTooltipDirective } from './task
 
 // Main module, bootstrapping HelloAngularComponent as root component
 @NgModule({
-  imports: [BrowserModule, CommonModule],
+  imports: [BrowserModule, CommonModule, HttpModule],
   declarations: [ 
     AppComponent,
     FormattedTimePipe,

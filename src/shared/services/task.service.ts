@@ -1,41 +1,41 @@
 import { Injectable } from '@angular/core';
 import { Task } from '../shared';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export default class TasksService {
-  public taskStore: Task[] = [];
+  taskStore: Task[] = [];
+  taskFeed: Observable<Task>;
+  private taskObserver: any;
+  private dataUrl = '/public/data/raw-tasks.json';
 
-  constructor() {
-    const tasks = [
-      {
-        name: "Code an HTML Table",
-        deadline: "June 23 2015",
-        pomodorosRequired: 1
-      },
-      {
-        name: "Sketch a wireframe for the new homepage",
-        deadline: "June 24 2016",
-        pomodorosRequired: 2
-      },
-      {
-        name: "Style table with Bootstrap styles",
-        deadline: "June 25 2017",
-        pomodorosRequired: 1
-      },
-      {
-        name: "Reinforce SEO with custom sitemap.xml",
-        deadline: "June 26 2017",
-        pomodorosRequired: 3
-      }
-    ];
-
-    this.taskStore = tasks.map(task => {
-      return {
-        name: task.name,
-        deadline: new Date(task.deadline),
-        queued: false,
-        pomodorosRequired: task.pomodorosRequired
-      }
+  constructor(private http: Http) {
+    this.taskFeed = new Observable(observer => {
+      this.taskObserver = observer;
     });
+
+    this.fetchTasks();
+  }
+
+  // fetch the data through rxjs
+  private fetchTasks(): void {
+    this.http.get(this.dataUrl)
+      .map(response => response.json())
+      .map(stream => stream.map(res => {
+        return {
+          name: res.name,
+          deadline: new Date(res.deadline),
+          pomodorosRequired: res.pomodorosRequired,
+          queued: res.queued
+        }
+      }))
+      .subscribe(
+        tasks => {
+          this.taskStore = tasks;
+          tasks.forEach(task => this.taskObserver.next(task))
+        },
+        error => console.log(error)
+      );
   }
 }

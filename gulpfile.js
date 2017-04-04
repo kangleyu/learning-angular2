@@ -13,7 +13,8 @@ gulp.task('build', function() {
 // task for copying all *.html files to views folder
 var sourceHtmlFiles = ['src/**/*.html'];
 var sourceStyleFiles = ['src/**/*.css'];
-var assetsFiles = ['src/shared/assets/**/*']
+var assetsFiles = ['src/shared/assets/**/*'];
+var dataFiles = ['src/shared/data/*.json'];
 var destination = 'public/';
 gulp.task('copyHtmls', function() {
   return gulp.src(sourceHtmlFiles).pipe(gulp.dest(destination));
@@ -25,6 +26,10 @@ gulp.task('copyStyles', function() {
 
 gulp.task('copyAssets', function() {
   return gulp.src(assetsFiles).pipe(gulp.dest(destination + "assets/"));
+});
+
+gulp.task('copyData', function() {
+  return gulp.src(dataFiles).pipe(gulp.dest(destination + "data/"));
 });
 
 // watch task for monitoring any .ts file changes

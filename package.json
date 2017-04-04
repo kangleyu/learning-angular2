@@ -7,8 +7,8 @@
     "typings": "typings",
     "postinstall": "typings install",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gulp build & gulp copyHtmls & gulp copyStyles & gulp copyAssets",
-    "start": "gulp build & gulp copyHtmls & gulp copyStyles & gulp copyAssets & lite-server"
+    "build": "gulp build & gulp copyHtmls & gulp copyStyles & gulp copyAssets & gulp copyData",
+    "start": "gulp build & gulp copyHtmls & gulp copyStyles & gulp copyAssets & gulp copyData & lite-server"
   },
   "repository": {
     "type": "git",
