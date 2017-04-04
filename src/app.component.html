@@ -3,8 +3,12 @@
     <div class="navbar-header">
       <strong class="navbar-brand">Pomodoro App</strong>
     </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a routerLink="/" routerLinkActive="active">Tasks</a></li>
+      <li><a routerLink="/timer" routerLinkActive="active">Timer</a></li>
+      <li><a routerLink="/tasks/editor" routerLinkActive="active">Publish Task</a></li>
+    </ul>
   </div>
 </nav>
 
-<pomodoro-timer-widget></pomodoro-timer-widget>
-<pomodoro-tasks></pomodoro-tasks>
+<router-outlet></router-outlet>
