@@ -4,7 +4,7 @@
 import { Queueable } from '../shared';
 
 interface Task extends Queueable {
-  name: String;
+  name: string;
   deadline: Date;
   pomodorosRequired: number;
 }

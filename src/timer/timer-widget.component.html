@@ -1,5 +1,6 @@
 <div class="container text-center">
   <img src="public/assets/img/pomodoro.png" style="width:116px;height:86px" />
+  <h3><small>{{ taskName }}</small></h3>
   <h1> {{ minutes }}:{{ seconds | number: '2.0' }} </h1>
   <p>
     <button (click)="togglePause()" class="btn btn-danger">

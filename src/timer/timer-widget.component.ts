@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SettingsService } from '../shared/shared';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { SettingsService, TasksService } from '../shared/shared';
 
 @Component({
   selector: 'pomodoro-timer-widget',
@@ -11,14 +12,24 @@ export default class TimerWidgetComponent {
   isPaused: boolean;
   buttonLabelKey: string;
   buttonLabelsMap: any;
+  taskName: string;
 
-  constructor(private settingsService: SettingsService) {
+  constructor(private settingsService: SettingsService,
+              private route: ActivatedRoute,
+              private taskService: TasksService) {
     this.buttonLabelsMap = settingsService.lablesMap.timer;
   }
 
   ngOnInit(): void {
     this.resetPomodoro();
     setInterval(() => this.tick(), 1000);
+
+    this.route.params.subscribe((params: Params) => {
+        let taskIndex = params['id'];
+        if (!isNaN(taskIndex)) {
+          this.taskName = this.taskService.taskStore[taskIndex].name;
+        }
+      });
   }
 
   resetPomodoro(): void {
