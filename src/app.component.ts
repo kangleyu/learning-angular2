@@ -9,7 +9,8 @@ import { SHARED_PROVIDERS } from './shared/shared';
 @Component({
   selector: 'pomodoro-app',
   providers: [SHARED_PROVIDERS],
-  templateUrl: 'public/app.component.html'
+  templateUrl: 'public/app.component.html',
+  styleUrls: ['public/css/app.component.css']
 })
 
 export default class AppComponent { }
