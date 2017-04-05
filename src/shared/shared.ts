@@ -9,6 +9,7 @@ import QueuedOnlyPipe from './pipes/queued-only.pipe';
 
 import TasksService from './services/task.service';
 import SettingsService from './services/settings.service';
+import CanActivateService from './services/canActivate.service';
 
 // Group for all pipes
 const SHARED_PIPES: any[] = [
@@ -19,7 +20,8 @@ const SHARED_PIPES: any[] = [
 // Group for all services (providers)
 const SHARED_PROVIDERS: any[] = [
   SettingsService,
-  TasksService
+  TasksService,
+  CanActivateService
 ];
 
 export {
@@ -32,5 +34,6 @@ export {
 
   TasksService,
   SettingsService,
+  CanActivateService,
   SHARED_PROVIDERS
 };
