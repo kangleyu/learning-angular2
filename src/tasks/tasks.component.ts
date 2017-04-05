@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import TaskIconsComponent  from './task-icons.component';
 import TaskTooltipDirective from './task-tooltip.directive';
 import { TasksService, SettingsService, Task, SHARED_PIPES } from '../shared/shared';
@@ -19,7 +20,8 @@ export default class TasksComponent implements OnInit {
 
   constructor(
     private tasksService: TasksService,
-    private settingsService: SettingsService) {
+    private settingsService: SettingsService,
+    private router: Router) {
     this.tasks = this.tasksService.taskStore;
     this.today = new Date();
     this.queueHeaderMapping = settingsService.pluralsMap.tasks;
@@ -45,5 +47,9 @@ export default class TasksComponent implements OnInit {
       .reduce((pomodoros: number, queuedTask: Task) => {
         return pomodoros + queuedTask.pomodorosRequired;
       }, 0)
+  }
+
+  workOn(): void {
+    this.router.navigate(['timer']);
   }
 };
