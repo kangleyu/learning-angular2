@@ -11,7 +11,7 @@ import { TasksComponent, TaskIconsComponent, TaskTooltipDirective, TaskEditorCom
 const appRoutes: Routes = [
   { path: '', component: TasksComponent },
   { path: 'tasks/editor', component: TaskEditorComponent },
-  { path: 'timer', component: TimerWidgetComponent }
+  { path: 'timer/:id', component: TimerWidgetComponent }
 ];
 
 // Main module, bootstrapping HelloAngularComponent as root component

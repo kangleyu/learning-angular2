@@ -49,7 +49,7 @@ export default class TasksComponent implements OnInit {
       }, 0)
   }
 
-  workOn(): void {
-    this.router.navigate(['timer']);
+  workOn(index: number): void {
+    this.router.navigate(['timer', index]);
   }
 };
