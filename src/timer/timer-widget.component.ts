@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute, Params, ROUTER_CONFIGURATION } from '@angular/router';
 import { SettingsService, TasksService } from '../shared/shared';
 
 @Component({
