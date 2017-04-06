@@ -9,7 +9,17 @@ import { TimerWidgetComponent } from './timer/timer';
 import { TasksComponent, TaskIconsComponent, TaskTooltipDirective, TaskEditorComponent } from './tasks/tasks';
 
 const appRoutes: Routes = [
-  { path: '', component: TasksComponent },
+  { 
+    path: '', 
+    data: { title: 'Home'},
+    redirectTo: '/tasks',
+    pathMatch: 'full'
+  },
+  {
+    path: 'tasks', 
+    component: TasksComponent, 
+    data: { title: 'Tasks'}
+  },
   { 
     path: 'tasks/editor', 
     // canActivate: [ CanActivateService ],
