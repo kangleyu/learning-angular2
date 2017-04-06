@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
-import { BrowserModule  } from '@angular/platform-browser';
+import { BrowserModule, Title  } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import AppComponent from './app.component';
 import { FormattedTimePipe, QueuedOnlyPipe, CanActivateService } from './shared/shared';
 import { TimerWidgetComponent } from './timer/timer';
 import { TasksComponent, TaskIconsComponent, TaskTooltipDirective, TaskEditorComponent } from './tasks/tasks';
 
+
 const appRoutes: Routes = [
   { path: '', component: TasksComponent },
   { 
     path: 'tasks/editor', 
     canActivate: [ CanActivateService ],
-    component: TaskEditorComponent 
+    component: TaskEditorComponent,
+    data: { title: 'Welcome to the Task Form!' }
   },
   { 
     path: 'timer', 
@@ -49,6 +51,7 @@ const appRoutes: Routes = [
     TaskEditorComponent
   ],
   providers: [
+    Title,
     CanActivateService
   ],
   bootstrap: [AppComponent],
