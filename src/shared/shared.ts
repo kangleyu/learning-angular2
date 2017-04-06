@@ -11,6 +11,7 @@ import TasksService from './services/task.service';
 import SettingsService from './services/settings.service';
 import CanActivateService from './services/canActivate.service';
 import CanDeactivateService from './services/canDeactivate.service';
+import CustomReuseStrategy from './router/custom.reuse.strategy';
 
 // Group for all pipes
 const SHARED_PIPES: any[] = [
@@ -29,6 +30,8 @@ const SHARED_PROVIDERS: any[] = [
 export {
   Queueable,
   Task,
+
+  CustomReuseStrategy,
 
   FormattedTimePipe,
   QueuedOnlyPipe,

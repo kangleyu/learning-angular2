@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, RouteReuseStrategy } from '@angular/router';
 import { BrowserModule, Title  } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import AppComponent from './app.component';
-import { FormattedTimePipe, QueuedOnlyPipe, CanActivateService, CanDeactivateService } from './shared/shared';
+import { FormattedTimePipe, QueuedOnlyPipe, CanActivateService, CanDeactivateService, CustomReuseStrategy } from './shared/shared';
 import { TimerWidgetComponent } from './timer/timer';
 import { TasksComponent, TaskIconsComponent, TaskTooltipDirective, TaskEditorComponent } from './tasks/tasks';
-
 
 const appRoutes: Routes = [
   { path: '', component: TasksComponent },
@@ -54,7 +53,8 @@ const appRoutes: Routes = [
   providers: [
     Title,
     CanActivateService,
-    CanDeactivateService
+    CanDeactivateService,
+    { provide: RouteReuseStrategy, useClass: CustomReuseStrategy }
   ],
   bootstrap: [AppComponent],
 })
