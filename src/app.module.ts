@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes, RouteReuseStrategy } from '@angular/router';
 import { BrowserModule, Title  } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
+import { CommonModule, APP_BASE_HREF } from '@angular/common';
 import AppComponent from './app.component';
 import { FormattedTimePipe, QueuedOnlyPipe, CanActivateService, CanDeactivateService, CustomReuseStrategy } from './shared/shared';
 import { TimerWidgetComponent } from './timer/timer';
@@ -64,7 +64,8 @@ const appRoutes: Routes = [
     Title,
     CanActivateService,
     CanDeactivateService,
-    { provide: RouteReuseStrategy, useClass: CustomReuseStrategy }
+    { provide: RouteReuseStrategy, useClass: CustomReuseStrategy },
+    {provide: APP_BASE_HREF, useValue : '/my-apps/pomodoro-app' }
   ],
   bootstrap: [AppComponent],
 })
