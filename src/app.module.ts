@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes, RouteReuseStrategy } from '@angular/router';
 import { BrowserModule, Title  } from '@angular/platform-browser';
 import { CommonModule, APP_BASE_HREF } from '@angular/common';
@@ -32,7 +33,7 @@ const appRoutes: Routes = [
     children: [
       {
         path: '',
-        component: TimerWidgetComponent,
+        component: TimerWidgetComponent
       },
       {
         path: 'task/:id',
@@ -49,7 +50,8 @@ const appRoutes: Routes = [
     BrowserModule, 
     CommonModule, 
     HttpModule, 
-    RouterModule],
+    RouterModule,
+    FormsModule],
   declarations: [ 
     AppComponent,
     FormattedTimePipe,
@@ -65,7 +67,7 @@ const appRoutes: Routes = [
     CanActivateService,
     CanDeactivateService,
     { provide: RouteReuseStrategy, useClass: CustomReuseStrategy },
-    {provide: APP_BASE_HREF, useValue : '/my-apps/pomodoro-app' }
+    { provide: APP_BASE_HREF, useValue: '/my-apps/pomodoro-app' }
   ],
   bootstrap: [AppComponent],
 })

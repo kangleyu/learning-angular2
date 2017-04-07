@@ -1,19 +1,19 @@
-<form class="container">
+<form class="container" (submit)="saveTask()">
   <h3>Task Editor:</h3>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Task name" required>
+    <input type="text" class="form-control" placeholder="Task name" [(ngModel)]="task.name" name="name">
   </div>
 
   <div class="form-group">
-    <input type="date" class="form-control" required>
+    <input type="date" class="form-control" [(ngModel)]="task.deadline" name="deadline">
   </div>
 
   <div class="form-group">
-    <input type="number" class="form-control" placeholder="Pomodoros required" min="1" max="4" required>
+    <input type="number" class="form-control" placeholder="Pomodoros required" min="1" max="4" [(ngModel)]="task.pomodorosRequired" name="pomodorosRequired">
   </div>
 
   <div class="form-group">
-    <input type="checkbox" name="queued">
+    <input type="checkbox" name="queued" [(ngModel)]="task.queued" name="queued">
     <label for="queued">this task by default?</label>
   </div>
 
