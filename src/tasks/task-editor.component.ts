@@ -5,7 +5,12 @@ import { Task, TasksService } from '../shared/shared';
 
 @Component({
   selector: 'pomodoro-tasks-editor',
-  templateUrl:'public/tasks/task-editor.component.html'
+  templateUrl:'public/tasks/task-editor.component.html',
+  styles: [`
+    .ng-valid { border-color: #3c763d; }
+    .ng-invalid { border-color: #a94442; }
+    .ng-untouched { border-color: #999999; }
+  `]
 })
 export default class TaskEditorComponent {
   task: Task;

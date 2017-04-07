@@ -1,15 +1,24 @@
-<form class="container" (submit)="saveTask()">
+<form class="container" (submit)="saveTask()" #taskForm="ngForm">
   <h3>Task Editor:</h3>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Task name" [(ngModel)]="task.name" name="name">
+    <p class="text-muted" *ngIf="taskForm.controls.name?.untouched">
+      Start here by entering the task name.
+    </p>
+    <p class="text-success" *ngIf="taskForm.controls.name?.valid && taskForm.controls.name?.touched">
+      Well done! That's a good name for a task!
+    </p>
+    <p class="text-danger" *ngIf="!taskForm.controls.name?.valid && taskForm.controls.name?.touched">
+      Oops! You cannot leave the name blank...
+    </p>
+    <input type="text" class="form-control" placeholder="Task name" [(ngModel)]="task.name" name="name" required>
   </div>
 
   <div class="form-group">
-    <input type="date" class="form-control" [(ngModel)]="task.deadline" name="deadline">
+    <input type="date" class="form-control" [(ngModel)]="task.deadline" name="deadline" required>
   </div>
 
   <div class="form-group">
-    <input type="number" class="form-control" placeholder="Pomodoros required" min="1" max="4" [(ngModel)]="task.pomodorosRequired" name="pomodorosRequired">
+    <input type="number" class="form-control" placeholder="Pomodoros required" min="1" max="4" [(ngModel)]="task.pomodorosRequired" name="pomodorosRequired" required>
   </div>
 
   <div class="form-group">
