@@ -34,5 +34,5 @@ gulp.task('copyData', function() {
 
 // watch task for monitoring any .ts file changes
 gulp.task('watch', ['build'], function() {
-  gulp.watch('./**/*.ts', ['build']);
+  gulp.watch(['./**/*.ts', './**/*.html', './**/*.css', './**/*.json'], ['build', 'copyHtmls', 'copyStyles', 'copyAssets', 'copyData']);
 });

@@ -75,7 +75,7 @@ const appRoutes: Routes = [
     CanActivateService,
     CanDeactivateService,
     { provide: RouteReuseStrategy, useClass: CustomReuseStrategy },
-    { provide: APP_BASE_HREF, useValue: '/my-apps/pomodoro-app' }
+    // { provide: APP_BASE_HREF, useValue: '/my-apps/pomodoro-app' }
   ],
   bootstrap: [AppComponent],
 })
