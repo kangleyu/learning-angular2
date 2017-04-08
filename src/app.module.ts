@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes, RouteReuseStrategy } from '@angular/router';
 import { BrowserModule, Title  } from '@angular/platform-browser';
 import { CommonModule, APP_BASE_HREF } from '@angular/common';
@@ -8,6 +8,7 @@ import AppComponent from './app.component';
 import { FormattedTimePipe, QueuedOnlyPipe, CanActivateService, CanDeactivateService, CustomReuseStrategy } from './shared/shared';
 import { TimerWidgetComponent } from './timer/timer';
 import { TasksComponent, TaskIconsComponent, TaskTooltipDirective, TaskEditorComponent } from './tasks/tasks';
+import { LoginComponent } from './login/login';
 
 const appRoutes: Routes = [
   { 
@@ -40,6 +41,10 @@ const appRoutes: Routes = [
         component: TimerWidgetComponent
       }
     ]
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 ];
 
@@ -51,7 +56,8 @@ const appRoutes: Routes = [
     CommonModule, 
     HttpModule, 
     RouterModule,
-    FormsModule],
+    FormsModule,
+    ReactiveFormsModule],
   declarations: [ 
     AppComponent,
     FormattedTimePipe,
@@ -60,7 +66,8 @@ const appRoutes: Routes = [
     TasksComponent,
     TaskTooltipDirective,
     TaskIconsComponent,
-    TaskEditorComponent
+    TaskEditorComponent,
+    LoginComponent
   ],
   providers: [
     Title,
