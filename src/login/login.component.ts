@@ -9,11 +9,17 @@ import { Router } from '@angular/router';
 export default class LoginComponent {
   loginForm: FormGroup;
   notValidCredentials: boolean = false;
+  showUsernameHint: boolean = false;
 
   constructor(formBuilder: FormBuilder, private router: Router) {
     this.loginForm = formBuilder.group({
       username: ['', [Validators.required, this.emailValidator]],
       password: ['', Validators.required]
+    });
+
+    const username = this.loginForm.controls['username'];
+    username.valueChanges.subscribe(value => {
+      this.showUsernameHint = (username.dirty && value.indexOf('@') < 0);
     });
   }
 
