@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
+import AuthenticationService from './authentication.service';
 
 @Injectable()
 export default class CanActivateService {
+
   canActivate() {
-    let magicWord = prompt('Say your name!');
-    return magicWord === 'kangleyu';
+    console.log(AuthenticationService.isAuthorized);
+    return AuthenticationService.isAuthorized();
   }
 }

@@ -1,0 +1,38 @@
+import { Injectable, EventEmitter } from '@angular/core';
+
+@Injectable()
+export default class AuthenticationService {
+  userIsLoggedIn: EventEmitter<boolean>;
+
+  constructor() {
+    this.userIsLoggedIn = new EventEmitter();
+  }
+
+  login({username, password}): Promise<boolean> {
+    return new Promise(resolve => {
+      let validCredentials: boolean = false;
+
+      // @Note: in a real scenariso this check 
+      // should be performed against a web service
+      if (username === "kangleyu@gmail.com" && password === 'kangleyu') {
+        validCredentials = true;
+        window.sessionStorage.setItem('token', 'eijhbcgioi');
+      }
+
+      this.userIsLoggedIn.emit(validCredentials);
+      resolve(validCredentials);
+    });
+  }
+
+  logout(): Promise<boolean> {
+    return new Promise(resolve => {
+      window.sessionStorage.removeItem('token');
+      this.userIsLoggedIn.emit(false);
+      resolve(true);
+    });
+  }
+
+  static isAuthorized(): boolean {
+    return !!window.sessionStorage.getItem('token');
+  }
+}

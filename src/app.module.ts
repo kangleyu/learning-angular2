@@ -24,7 +24,7 @@ const appRoutes: Routes = [
   },
   { 
     path: 'tasks/editor', 
-    // canActivate: [ CanActivateService ],
+    canActivate: [ CanActivateService ],
     // canDeactivate: [ CanDeactivateService ],
     component: TaskEditorComponent,
     data: { title: 'Welcome to the Task Form!' }

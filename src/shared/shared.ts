@@ -12,6 +12,7 @@ import SettingsService from './services/settings.service';
 import CanActivateService from './services/canActivate.service';
 import CanDeactivateService from './services/canDeactivate.service';
 import CustomReuseStrategy from './router/custom.reuse.strategy';
+import AuthenticationService from './services/authentication.service';
 
 // Group for all pipes
 const SHARED_PIPES: any[] = [
@@ -24,7 +25,8 @@ const SHARED_PROVIDERS: any[] = [
   SettingsService,
   TasksService,
   CanActivateService,
-  CanDeactivateService
+  CanDeactivateService,
+  AuthenticationService
 ];
 
 export {
@@ -41,5 +43,6 @@ export {
   SettingsService,
   CanActivateService,
   CanDeactivateService,
+  AuthenticationService,
   SHARED_PROVIDERS
 };
