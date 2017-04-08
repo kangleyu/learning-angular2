@@ -1,5 +1,5 @@
 <div class="container text-center">
-  <img src="public/assets/img/pomodoro.png" style="width:116px;height:86px" />
+  <img src="public/assets/img/pomodoro.png" style="width:116px;height:86px" [ngClass]="{ pulse: !isPaused }" />
   <h3><small>{{ taskName }}</small></h3>
   <h1> {{ minutes }}:{{ seconds | number: '2.0' }} </h1>
   <p>

@@ -4,7 +4,8 @@ import { SettingsService, TasksService } from '../shared/shared';
 
 @Component({
   selector: 'pomodoro-timer-widget',
-  templateUrl: 'public/timer/timer-widget.component.html'
+  templateUrl: 'public/timer/timer-widget.component.html',
+  styleUrls: ['public/css/timer/timer-widget.component.css']
 })
 export default class TimerWidgetComponent {
   minutes: number;
