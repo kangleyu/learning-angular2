@@ -5,7 +5,7 @@ import { RouterModule, Routes, RouteReuseStrategy } from '@angular/router';
 import { BrowserModule, Title  } from '@angular/platform-browser';
 import { CommonModule, APP_BASE_HREF } from '@angular/common';
 import AppComponent from './app.component';
-import { FormattedTimePipe, QueuedOnlyPipe, CanActivateService, CanDeactivateService, CustomReuseStrategy } from './shared/shared';
+import { FormattedTimePipe, QueuedOnlyPipe, CanActivateService, CanDeactivateService, CustomReuseStrategy, RouterOutletDirective } from './shared/shared';
 import { TimerWidgetComponent } from './timer/timer';
 import { TasksComponent, TaskIconsComponent, TaskTooltipDirective, TaskEditorComponent } from './tasks/tasks';
 import { LoginComponent } from './login/login';
@@ -24,7 +24,7 @@ const appRoutes: Routes = [
   },
   { 
     path: 'tasks/editor', 
-    canActivate: [ CanActivateService ],
+    // canActivate: [ CanActivateService ],
     // canDeactivate: [ CanDeactivateService ],
     component: TaskEditorComponent,
     data: { title: 'Welcome to the Task Form!' }
@@ -67,7 +67,8 @@ const appRoutes: Routes = [
     TaskTooltipDirective,
     TaskIconsComponent,
     TaskEditorComponent,
-    LoginComponent
+    LoginComponent,
+    RouterOutletDirective
   ],
   providers: [
     Title,

@@ -14,6 +14,8 @@ import CanDeactivateService from './services/canDeactivate.service';
 import CustomReuseStrategy from './router/custom.reuse.strategy';
 import AuthenticationService from './services/authentication.service';
 
+import RouterOutletDirective from './directives/router-outlet.directive';
+
 // Group for all pipes
 const SHARED_PIPES: any[] = [
   FormattedTimePipe,
@@ -27,6 +29,10 @@ const SHARED_PROVIDERS: any[] = [
   CanActivateService,
   CanDeactivateService,
   AuthenticationService
+];
+
+const SHARED_DIRECTIVES: any[] = [
+  RouterOutletDirective
 ];
 
 export {
@@ -44,5 +50,8 @@ export {
   CanActivateService,
   CanDeactivateService,
   AuthenticationService,
-  SHARED_PROVIDERS
+  SHARED_PROVIDERS,
+
+  RouterOutletDirective,
+  SHARED_DIRECTIVES
 };
