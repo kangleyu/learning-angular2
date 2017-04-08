@@ -6,7 +6,15 @@
     <ul class="nav navbar-nav navbar-right">
       <li><a routerLink="/tasks" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }">Tasks</a></li>
       <li><a routerLink="/timer" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }">Timer</a></li>
-      <li><a routerLink="/tasks/editor" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }">Publish Task</a></li>
+      <li *ngIf="userIsLoggedIn">
+        <a routerLink="/tasks/editor" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }">Publish Task</a>
+      </li>
+      <li *ngIf="!userIsLoggedIn">
+        <a routerLink="/login">Login</a>
+      </li>
+      <li *ngIf="userIsLoggedIn">
+        <a href="#" (click)="logout($event)">Logout</a>
+      </li>
     </ul>
   </div>
 </nav>

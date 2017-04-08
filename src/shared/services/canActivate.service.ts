@@ -6,7 +6,6 @@ import AuthenticationService from './authentication.service';
 export default class CanActivateService {
 
   canActivate() {
-    console.log(AuthenticationService.isAuthorized);
     return AuthenticationService.isAuthorized();
   }
 }
